@@ -17,4 +17,15 @@ const userSchema = new mongoose.Schema({
   lastName: String,
 });
 
+const accountSchema = new mongoose.Schema({
+  userId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"User",
+    required:true
+  },
+  balance:Number
+})
+
+exports.Account = mongoose.model("Account",accountSchema)
+
 exports.User = mongoose.model("User", userSchema);
